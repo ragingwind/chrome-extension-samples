@@ -1,0 +1,16 @@
+{
+	"name": "Tab Capturer",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "The example for capture visible screen on the tab",
+	"browser_action": {
+		"default_icon": "icon.png"
+	},
+	"icons": {
+      "128": "icon.png"
+   },
+	"background": {
+     "page": "background.html"
+  },
+  "permissions": ["tabs", "http://*/*", "https://*/*"]
+}
