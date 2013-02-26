@@ -12,7 +12,7 @@ var ColorBadgeIcon = function() {
 
 		var ctx = canvas.getContext("2d");
 		ctx.fillStyle = 'rgb(' + [r, g, b].join(',') + ')';
-		ctx.fillRect(0, 0, 19, 19);
+		ctx.fillRect(0, 0, 19, 19);`
 		chrome.browserAction.setIcon({imageData: ctx.getImageData(0, 0, 19, 19)});
 		ColorBadgeIcon.updateIcon(this);
 	}
@@ -24,4 +24,16 @@ ColorBadgeIcon.updateIcon = function(ctx) {
 
 document.addEventListener('DOMContentLoaded', function () {
   ColorBadgeIcon.updateIcon(new ColorBadgeIcon());
+});
+
+
+/**
+ * Listens for the app launching then creates the window
+ *
+ * @see http://developer.chrome.com/apps/app.window.html
+ */
+chrome.app.runtime.onLaunched.addListener(function() {
+  chrome.app.window.create('index.html', {
+    // gi
+  });
 });
