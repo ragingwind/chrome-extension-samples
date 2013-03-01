@@ -1,0 +1,101 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+
+html {
+    /* Defaults css for cssmin process */
+}
+
+.signin-outter {
+  display:inline;
+  display:none;
+}
+
+.google-signin {
+  font-weight: bold;
+  font-size: 12px;
+  width:117px;
+  height: 31px;
+  line-height: 31px;
+  background-color: #dd4b39;
+  color: #fff;
+  padding:0px;
+  border:0px;
+  display: inline-block;
+  font-family: arial,sans-serif;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+  -webkit-border-radius: 3px;
+  cursor: pointer;
+}
+
+.google-signin:hover {
+  background-color: #e74b37;
+}
+
+.google-signin:active {
+  background-color: #be3e2e;
+}
+
+.google-signin .logo {
+  background: no-repeat url(https://ssl.gstatic.com/s2/oz/images/sprites/signinbutton-33609e7d7a37de895f076250a526944d.png) -44px 0;
+  height: 32px;
+  width: 32px;
+  margin-top: -1px;
+  border-color: #bb3f30;
+  border-width: 0;
+  border-right-width: 1px;
+  border-style: solid;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.google-signin .logo:active {
+  border-color: #a13426;
+}
+
+.google-signin .label {
+  font-family: arial,sans-serif;
+  white-space: nowrap;
+  padding: 0 20px;
+  border-radius: 0 3px 3px 0;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 31px;
+}
+
+.description {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #999;
+  cursor: text;
+  height: auto;
+  margin: 0px 0 8px 0;
+  padding: 5px 7px;
+  width:300px;
+  height:31px;
+  display:none;
+}
+
+.review-list ul {
+  display:none;
+  padding: 0;
+  width:300px;
+}
+
+.review-list ul li {
+  list-style-type: none;
+  font-size:11px;
+  border-bottom:1px solid #ddd;
+  margin-bottom:7px;
+}
+
+.review-list ul li .rating {
+  color: #dd4b39;
+  font-weight:700;
+}
+
+

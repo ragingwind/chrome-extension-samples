@@ -1,0 +1,43 @@
+{
+  "name": "__MSG_appName__",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "__MSG_appDescription__",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+   	"scripts": [
+      "components/jquery/jquery.js",
+      "components/oauth2-extensions-for-test/lib/oauth2.js",
+      "scripts/review.js",
+      "scripts/background.js"
+    ]
+  },
+  "page_action": {
+    "default_icon": {
+      "19": "images/icon-19.png",
+      "38": "images/icon-38.png"
+    }
+    ,"default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["http://www.google.com/robots.txt*"],
+      "js": [
+        "components/oauth2-extensions-for-test/lib/oauth2.js",
+        "components/oauth2-extensions-for-test/lib/oauth2_inject.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://accounts.google.com https://www.googleapis.com https://apis.google.com https://plusone.google.com ; frame-src 'self' https://www.googleapis.com https://accounts.google.com https://plusone.google.com; object-src 'self'"
+}
