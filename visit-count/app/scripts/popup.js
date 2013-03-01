@@ -1,49 +1,31 @@
-function getHostName( url ) {
-  return url
-}
+function showMostlyVisit(tabs) {
+  var hostname = tabs[0].url.match(/^(?:f|ht)tp(?:s)?\:\/\/([^/]+)/im);
 
-function queryMostlyVisit( argument ) {
+  if (hostname) {
+    var tmpl = '<li><div style="min-width:400px">' +
+               '<a href="{{url}}">{{title}}</a></div>' +
+               '<small>{{visitTime}}</small></li>';
 
-  chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-    // get hostname
-    var hostname = tabs[0].url.match(/^(?:f|ht)tp(?:s)?\:\/\/([^/]+)/im);
-    if (hostname) {
-      // var li = '<li><div style="min-width:400px"><a href="{{url}}">{{title}}</div><small><{{lastVisitTime}}</small></li>';
-      chrome.history.search({ text: hostname[1], maxResults: 10 }, function (items) {
-        items.forEach(function (item) {
-          console.log(item.title)
-          console.log(item.url)
+    // search related history with hostname.
+    chrome.history.search({ text: hostname[1], maxResults: 10 }, function (items) {
+      items.forEach(function (item) {
+        var visitTime = new Date(item.lastVisitTime).toLocaleString();
+        var title = item.title || item.url.substring(0, 50);
+        var item = tmpl.replace('{{url}}', item.url)
+                       .replace('{{title}}', title)
+                       .replace('{{visitTime}}', visitTime);
 
-          var lastVisitTime = new Date(item.lastVisitTime).toLocaleString();
-          var $li = $( ['<li><div style="min-width:400px"><a href="',
-            item.url, '">', item.title || item.url.substring(0, 50), '</a></div><small>',
-            lastVisitTime, '</small></li>'].join('') );
-
-          // li = li.replace('{{url}}', item.url)
-          //   .replace('{{title}}', item.title)
-          //   .replace('{{lastVisitTime}}', item.lastVisitTime);
-
-          $('#history').append( $li );
-        });
-
-        // console.log($('a'));
-            $('#history a').click( function () {
-              chrome.tabs.create({url: $(this).attr('href')});
-          })
-
-
+        $('#history').append(item);
       });
-    }
-  });
 
-}
-// var console = chrome.extension.getBackgroundPage().console;
+      // bind active event to each items.
+      $('#history a').click( function () {
+        chrome.tabs.create({url: $(this).attr('href')});
+      });
+    });
+  }
+};
+
 $(document).ready(function () {
-
-  queryMostlyVisit();
-
-  $('#history a').click(function () {
-    console.log('click', this)
-  })
-
+  chrome.tabs.query({ currentWindow: true, active: true }, showMostlyVisit);
 });

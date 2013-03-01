@@ -12,15 +12,23 @@ chrome.history.onVisited.addListener(function (result) {
 });
 
 function update() {
+  // query activated tab.
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     var favicon = tabs[0].favIconUrl;
+
     chrome.history.search({text: tabs[0].url, maxResults: 1}, function (result) {
-      console.log(favicon, result[0])
+      // update visit count.
       result[0] && chrome.browserAction.setBadgeText({ text: result[0].visitCount.toString() });
+
+      // replace badge icon to favicon.
       favicon && chrome.browserAction.setIcon({ path: favicon });
+
+      console.log(favicon, result[0])
     });
+
   });
 }
+
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   update();
 });
