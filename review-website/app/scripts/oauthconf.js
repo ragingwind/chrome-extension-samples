@@ -8,5 +8,5 @@
 //
 // [1]: https://code.google.com/apis/console
 
-var OAUTH_CLIENT_ID = '294448279976-2rpnlgk5vervcaei49trtncbf562npc0.apps.googleusercontent.com';
-var OAUTH_CLIENT_SECRET = 'aYFkLixVwZKia1MWJoaWekOv';
+var OAUTH_CLIENT_ID = '';
+var OAUTH_CLIENT_SECRET = '';

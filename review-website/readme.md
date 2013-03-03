@@ -1,5 +1,5 @@
 # REVIEW WEBSITE
-post my review rating to google plus. this extension show how to use google+
+post my review rating to google plus. this extension show how to use new google+
 moment api with 'ReviewActivity'. the project scaffolds by yeoman. if you want to use
 grunt task? run 'npm install && bower install' to install the required dependecies
 after install grint-cli.
