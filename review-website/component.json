@@ -2,6 +2,8 @@
   "name": "review-webtoon",
   "version": "0.0.0",
   "dependencies": {
+    "jquery": "~1.9.1",
+    "oauth2-extensions-for-test": "latest"
   },
   "devDependencies": {}
 }

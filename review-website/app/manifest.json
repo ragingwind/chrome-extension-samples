@@ -10,6 +10,7 @@
   "default_locale": "en",
   "background": {
    	"scripts": [
+      "scripts/oauthconf.js",
       "components/jquery/jquery.js",
       "components/oauth2-extensions-for-test/lib/oauth2.js",
       "scripts/review.js",

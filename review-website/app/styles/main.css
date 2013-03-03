@@ -73,7 +73,6 @@ html {
   color: #999;
   cursor: text;
   height: auto;
-  margin: 0px 0 8px 0;
   padding: 5px 7px;
   width:300px;
   height:31px;
@@ -98,4 +97,6 @@ html {
   font-weight:700;
 }
 
-
+.review-list ul li .text {
+  font-size:18px;
+}
