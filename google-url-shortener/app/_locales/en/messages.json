@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Google URL Shortener",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Google URL Shortener",
+    "description": "The description of the application"
+  }
+}

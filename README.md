@@ -1,7 +1,12 @@
-# CHROME EXTENSION SAMPLES
+# Chrome extension samples
+
 chrome extensions samples.
 
-# LICENSE
+# Samples
+
+- [Google url shortener](/google-url-shortener)
+
+# License
 
 [MIT license](http://opensource.org/licenses/MIT)
 
