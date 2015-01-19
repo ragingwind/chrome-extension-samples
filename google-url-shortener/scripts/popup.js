@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   // add listener for handling response message
   port.onMessage.addListener(function(res) {
-    document.getElementById('url').innerText = res.status === 200 ? res.shortUrl : 'You\'ve got a failed';
+    var url = (res.status === 200) ? res.shortUrl : 'You\'ve got a failed';
+    document.getElementById('url').innerText = url;
   });
 
   chrome.tabs.query(queryOpts, function(tab) {

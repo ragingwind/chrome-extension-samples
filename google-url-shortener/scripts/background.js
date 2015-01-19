@@ -1,7 +1,6 @@
 'use strict';
 
-// shorten url passed from tab info. shorten request is post to
-// google apis with the url that put into 'longURL' param
+// post the long url that passed from tab info to google apis
 function shorturl(url, cb) {
   var http = new XMLHttpRequest();
   var params = '{"longUrl": "' + url + '"}';
@@ -15,14 +14,13 @@ function shorturl(url, cb) {
         status: http.status,
         shortUrl: JSON.parse(http.responseText).id
       })
-
     }
   }
   http.send(params);
 };
 
-// make a connection with popup page. port params should be included
-// name of port
+// make a connection for popup page. we are using the port name as 'shorten`
+// so port params should has the name
 chrome.runtime.onConnect.addListener(function(port) {
   if (port.name !== 'shorten') {
     console.error('Invalid port has found', port);
