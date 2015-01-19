@@ -12,7 +12,8 @@
   },
   "page_action": {
     "default_icon": {
-      "19": "icon-19.png"
+      "19": "icon-19.png",
+      "128": "icon-128.png"
     },
     "default_title": "Chrome Extensions Tab"
   },
